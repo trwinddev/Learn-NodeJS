@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
+const initRoutes = require("./src/routes");
 
 const app = express();
 app.use(
@@ -17,9 +18,7 @@ app.use(
   })
 );
 
-app.use("/", (req, res) => {
-  return res.send("Sever on...");
-});
+initRoutes(app);
 
 const PORT = process.env.PORT || 8888;
 
